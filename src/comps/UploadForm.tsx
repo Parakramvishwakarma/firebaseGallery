@@ -12,6 +12,7 @@ const UploadForm: React.FC = () => {
     const selected: File = e.target.files[0];
     if (selected && fileTypes.includes(selected.type)) {
       setFile(selected);
+      setError("");
     } else {
       setFile(undefined);
       setError("Please select valid file type png/jpeg");
@@ -23,11 +24,10 @@ const UploadForm: React.FC = () => {
       <label>
         <input type="file" onChange={changeHandler} />
         <span>+</span>
-      </label> 
+      </label>
       <div className="output">
         {error && <div className="erorr">{error}</div>}
-        {file && <div className="name">{file.name} </div>}
-        {file && <ProgressBar file={file} setFile={setFile}/>}
+        {file && <ProgressBar file={file} setFile={setFile} />}
       </div>
     </form>
   );

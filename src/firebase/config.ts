@@ -3,7 +3,7 @@ import * as firebase from "firebase/app";
 import 'firebase/storage';
 import 'firebase/firestore';
 import { getStorage } from "firebase/storage";
-const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
+import { getFirestore, Timestamp } from "firebase/firestore";
 
 // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
@@ -25,4 +25,3 @@ const firebaseConfig = {
 export const app = firebase.initializeApp(firebaseConfig, "masterApp");
 export const projectStorage = getStorage(app);
 export const projectFireStore = getFirestore(app);
-export default firebase;

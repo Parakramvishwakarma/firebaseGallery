@@ -29,13 +29,59 @@ body{
   font-size: 2.6rem;
 }
 
+.error{
+  color: var(--error);
+}
+
+ouput{
+  height: 60px;
+  font-size: 0.8rem;
+}
+
 /* upload form styles */
+input {
+  display: none;
+}
+label {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  margin: 10px auto;
+  line-height: 30px;
+  color: var(--primary);
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+}
+label:hover{
+background: var(--primary);
+color: white;
+}
 
 
-/* progress bar styles */
+.img-grid {
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
 
+.img-wrap {
+  overflow: hidden;
+  height: 0;
+  padding: 50% 0;
+  position: relative;
+  opacity: 0.8
+}
 
-/* image grid styles */
+.img-wrap img{
+  min-width: 100%;
+  min-height:  100%;
+  max-width: 150%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
-
-/* modal styles */
