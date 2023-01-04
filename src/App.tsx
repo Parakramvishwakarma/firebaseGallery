@@ -2,6 +2,7 @@ import React from 'react';
 import ImageGrid from './comps/ImageGrid';
 import Title from './comps/Title';
 import UploadForm from './comps/UploadForm';
+import 'semantic-ui-css/semantic.min.css'
 
 function App() {
   return (
