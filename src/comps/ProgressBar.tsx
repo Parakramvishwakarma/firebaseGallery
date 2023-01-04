@@ -5,10 +5,11 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 interface ProgressBarProps {
   file: File;
   setFile: React.Dispatch<SetStateAction<File | undefined>>;
+  comment: string
 }
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ file, setFile }) => {
-  const { progress, url } = useStorage(file);
+const ProgressBar: React.FC<ProgressBarProps> = ({ file, setFile, comment}) => {
+  const { progress, url } = useStorage(file, comment);
   useEffect(() => {
     if (url) {
       setFile(undefined);

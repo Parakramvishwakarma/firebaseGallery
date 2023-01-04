@@ -1,33 +1,27 @@
 import React, { useState } from "react";
+import { Button } from "semantic-ui-react";
 import { app } from "../firebase/config";
 import ProgressBar from "./ProgressBar";
-
-export const fileTypes: string[] = ["image/jpeg", "image/png"];
+import UploadModal from "./UploadModal";
 
 const UploadForm: React.FC = () => {
   const [file, setFile] = useState<File | undefined>();
-  const [error, setError] = useState<string>("");
-
-  const changeHandler = (e: any) => {
-    const selected: File = e.target.files[0];
-    if (selected && fileTypes.includes(selected.type)) {
-      setFile(selected);
-      setError("");
-    } else {
-      setFile(undefined);
-      setError("Please select valid file type png/jpeg");
-    }
-  };
+  const [uploadModal, setUploadModal] = useState<boolean>(false);
+  const [comment, setComment] = useState<string>("");
 
   return (
     <form>
-      <label>
-        <input type="file" onChange={changeHandler} />
-        <span>+</span>
-      </label>
+      <Button onClick={() => setUploadModal(true)}>Add Photo</Button>
+      <UploadModal
+        setModal={setUploadModal}
+        setFile={setFile}
+        setComment={setComment}
+        modal={uploadModal}
+      />
       <div className="output">
-        {error && <div className="erorr">{error}</div>}
-        {file && <ProgressBar file={file} setFile={setFile} />}
+        {file && (
+          <ProgressBar file={file} setFile={setFile} comment={comment} />
+        )}
       </div>
     </form>
   );
