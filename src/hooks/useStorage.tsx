@@ -5,7 +5,7 @@ import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 
 
-const useStorage = (file : File, description: string ) => {
+const useStorage = (file : File ) => {
     const [progress, setProgress] = useState<number>(0);
     const [error, setError] = useState<string | undefined>(undefined);
     const [url, setUrl] = useState<string | undefined>(undefined);
@@ -53,7 +53,7 @@ const useStorage = (file : File, description: string ) => {
             url,
             createdAt: Timestamp.now(),
             liked: false,
-            comment: description
+            comment: ""
             });
             console.log("Document written with ID: ", docRef.id); 
         } catch (e) {
